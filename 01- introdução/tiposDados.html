@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipo de dados</title>
+</head>
+<body>
+    <h1 id="objeto"></h1>
+    <h2 id="vetor"></h2>
+    <h3 id="texto"></h3>
+
+    <script>
+        // numero
+        let idade=16;
+        let peso =85.5;
+
+        //javascrpt tambem permite nao ultilizar virgula no final
+        let cor="Rosa Chiclete"
+        let nome="Antonio"
+
+        //ojeto
+        const pessoa={nome:"Arisoldo", sobrenome:"Adiamante"}
+
+        //Array - Vetor
+        const carros= ['fuscao','volvo','BMW']
+
+        //manipular o DOM trocado d H1 pelos valores
+        document.getElementById("objeto").innerHTML=pessoa.nome
+        document.getElementById("vetor").innerHTML=carros[0]
+        document.getElementById("texto").innerText="O Rato roeu a roupa"
+
+        
+    </script>
+</body>
+</html>
