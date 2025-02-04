@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hoje vai sair milhionario</h1>
+     <Script>
+        // pergunta 01
+        // adicionando audio
+        let audioCorreto = new Audio('acertou.mp3')
+        let audioErrado = new Audio('quepena.mp3')
+
+        let resposta1 =prompt ("qual a capital do brasil")
+        if(resposta1.toLowerCase() === "brasilia"){
+            audioCorreto.play()
+            alert("CORRETO!!!")
+        }else{
+            audioErrado.play()
+            alert("ERRADO!!!")
+        }
+     </Script>
+</body>
+</html>
