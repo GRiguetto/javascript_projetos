@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><span id="saudaJS"></span> Matheus Bumbum</h1>
+    <script>
+        //quero rodar o Script assim que todos os elementos DOM carregarem
+        document.addEventListener('DOMContentLoaded',function()
+        {
+            //isso evita que aconteça erro se os elementos não carregarem
+            //Captura a hora do sistema
+            const hora = new Date().getHours()
+
+            //inicia um variavel mensagem vazia
+            let  mensagem = ""
+
+            //Condicional da saudação
+
+            if(hora >=6 && hora <12)
+            {
+                mensagem ="Bom dia !"
+            }else if (hora >= 12 && hora <18)
+            {
+                mensagem = "Boa tarde"
+            }
+            else if ( hora>=18 && hora<23)
+            {
+                mensagem = "Boa Noite"
+            }
+            else
+            {
+                mensagem = "Boa madrugada"
+            }
+
+            const elemento = document.getElementById("saudaJS")
+            elemento.innerHTML = mensagem
+        }
+    )
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #email-sugestao {
+        border: 1px solid #ccc; /* Corrected from 1p to 1px */
+        padding: 5px;
+    }
+
+    .sugestao-item {
+        padding: 2px 5px;
+        cursor: pointer;
+    }
+
+    .sugestao-item:hover {
+        background-color: #f0f0f0;
+    }
+</style>
+
+<body>
+    <input type="email" id="email-input" placeholder="Digite Email">
+    <div id="email-sugestao" style="display: none;"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const entradaEmail = document.getElementById('email-input');
+            const caixaSugestao = document.getElementById('email-sugestao');
+
+            const dominios = ['gmail.com', 'yahoo.com', 'outlook.com'];
+
+            entradaEmail.addEventListener('input', (e) => {
+                const valorEntrada = e.target.value;
+                if (valorEntrada.includes('@')) {
+                    const dominioInserido = valorEntrada.split('@')[1];
+                    const sugestoes = dominios.filter(dominio =>
+                        dominio.startsWith(dominioInserido)
+                    );
+                    caixaSugestao.innerHTML = sugestoes.map(dominio =>
+                        `<div class="sugestao-item">${valorEntrada.split('@')[0]}@${dominio}</div>`
+                    ).join('');
+                    caixaSugestao.style.display = 'block';
+                } else {
+                    caixaSugestao.style.display = 'none';
+                }
+            });
+
+            caixaSugestao.addEventListener('click', (e) => {
+                if (e.target.classList.contains('sugestao-item')) {
+                    entradaEmail.value = e.target.textContent;
+                    caixaSugestao.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
