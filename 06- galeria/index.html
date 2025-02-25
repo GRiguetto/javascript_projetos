@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <style>
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .galeria img {
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .galeria img:hover {
+            transform: scale(1.1);
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="galeria">
+        <img src="logoBK.png" width="150px" onclick="abrirLight('logoBK.png')">
+        <img src="lula molusco bunito.jpg" width="150px" onclick="abrirLight('lula molusco bunito.jpg')">
+        <img src="walter.jpg" width="150px" onclick="abrirLight('walter.jpg')">
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="fecharLightBox()">
+        <img id="lightboxImg" src="" alt="">
+    </div>
+
+    <script>
+        function abrirLight(imagem) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightbox.style.display = 'flex';
+            lightboxImg.src = imagem; // Corrigido aqui
+        }
+
+        function fecharLightBox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
